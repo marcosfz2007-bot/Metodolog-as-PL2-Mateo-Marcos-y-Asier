@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: es.uah.matcomp.mp.el3.a.ejemplo.GsonUtilEjemplo
-
