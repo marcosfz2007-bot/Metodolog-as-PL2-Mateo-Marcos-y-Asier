@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Ejemplo1_1B_TryCatch.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Ejemplo1_1B_TryCatch.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">File</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">io</span><span class="s2">.</span><span class="s1">FileNotFoundException</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Ejemplo1_1B_TryCatch </span><span class="s2">{</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+
+        <span class="s3">// El bloque try contiene el código que puede producir una excepción</span>
+        <span class="s0">try </span><span class="s2">{</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Intentando abrir el fichero test.in...&quot;</span><span class="s2">);</span>
+
+            <span class="s3">// Intentamos abrir el fichero con Scanner</span>
+            <span class="s3">// Si el fichero no existe, aquí se lanzará FileNotFoundException</span>
+            <span class="s1">Scanner in </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s0">new </span><span class="s1">File</span><span class="s2">(</span><span class="s4">&quot;test.in&quot;</span><span class="s2">));</span>
+
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Fichero abierto correctamente.&quot;</span><span class="s2">);</span>
+
+            <span class="s3">// Comprobamos si el fichero tiene al menos una línea</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">in</span><span class="s2">.</span><span class="s1">hasNextLine</span><span class="s2">()) {</span>
+                <span class="s3">// Si la tiene, la leemos y la mostramos por pantalla</span>
+                <span class="s1">String linea </span><span class="s2">= </span><span class="s1">in</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Primera línea del fichero: &quot; </span><span class="s2">+ </span><span class="s1">linea</span><span class="s2">);</span>
+            <span class="s2">} </span><span class="s0">else </span><span class="s2">{</span>
+                <span class="s3">// Si el fichero existe pero está vacío, también lo indicamos</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;El fichero está vacío.&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+
+            <span class="s3">// Cerramos el Scanner para liberar el recurso</span>
+            <span class="s1">in</span><span class="s2">.</span><span class="s1">close</span><span class="s2">();</span>
+
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Lectura finalizada correctamente.&quot;</span><span class="s2">);</span>
+
+        <span class="s2">} </span><span class="s0">catch </span><span class="s2">(</span><span class="s1">FileNotFoundException ex</span><span class="s2">) {</span>
+
+            <span class="s3">// Este bloque catch solo se ejecuta si se produce</span>
+            <span class="s3">// una FileNotFoundException dentro del try</span>
+
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Error: no se ha encontrado el fichero.&quot;</span><span class="s2">);</span>
+
+            <span class="s3">// printStackTrace() muestra información detallada del error,</span>
+            <span class="s3">// incluyendo la pila de llamadas</span>
+            <span class="s1">ex</span><span class="s2">.</span><span class="s1">printStackTrace</span><span class="s2">();</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head>
+<title>Ejemplo1_2_MethodCallStackDemo.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Ejemplo1_2_MethodCallStackDemo.java</font>
+</center></td></tr></table>
+<pre><span class="s0">public class </span><span class="s1">Ejemplo1_2_MethodCallStackDemo </span><span class="s2">{</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+
+        <span class="s3">// La JVM empieza ejecutando main()</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Enter main()&quot;</span><span class="s2">);</span>
+
+        <span class="s3">// main llama a methodA()</span>
+        <span class="s1">methodA</span><span class="s2">();</span>
+
+        <span class="s3">// Este mensaje se ejecuta cuando todo ha terminado</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Exit main()&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static void </span><span class="s1">methodA</span><span class="s2">() {</span>
+
+        <span class="s3">// methodA entra en la pila</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Enter methodA()&quot;</span><span class="s2">);</span>
+
+        <span class="s3">// methodA llama a methodB()</span>
+        <span class="s1">methodB</span><span class="s2">();</span>
+
+        <span class="s3">// Se ejecuta cuando methodB termina</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Exit methodA()&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static void </span><span class="s1">methodB</span><span class="s2">() {</span>
+
+        <span class="s3">// methodB entra en la pila</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Enter methodB()&quot;</span><span class="s2">);</span>
+
+        <span class="s3">// methodB llama a methodC()</span>
+        <span class="s1">methodC</span><span class="s2">();</span>
+
+        <span class="s3">// Se ejecuta cuando methodC termina</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Exit methodB()&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public static void </span><span class="s1">methodC</span><span class="s2">() {</span>
+
+        <span class="s3">// methodC entra en la pila</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Enter methodC()&quot;</span><span class="s2">);</span>
+
+        <span class="s3">// No hay más llamadas → termina aquí</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Exit methodC()&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
